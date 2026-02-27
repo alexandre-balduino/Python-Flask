@@ -1,15 +1,19 @@
 
+from os import getenv
+from dotenv import load_dotenv
 from flask import Flask, render_template
 import mysql.connector
 
 app = Flask(__name__)
 
 def connect_db():
+    load_dotenv()
+    
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="soares98",
-        database="cadastro"
+        host=getenv("DB_HOST"),
+        user=getenv("DB_USER"),
+        password=getenv("DB_PASS"),
+        database=getenv("DB_NAME")
     )
 
 @app.route("/", methods=["GET"])
