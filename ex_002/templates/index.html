@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+  <meta charset=UTF-8">
+  <title>Boas Vindas</title>
+</head>
+<body>
+  <h1>Quem está aí?</h1>
+  <form method="POST">
+    <input type="text" name="nome_usuario" placeholder="Digite seu nome" required>
+    <button type="submit">Enviar</button>
+  </form>
+  {% if nome %}
+    <hr>
+    <h1>Seja muito bem vindo, {{ nome }}</h1>
+  {% endif %}
+</body>
+</html>
